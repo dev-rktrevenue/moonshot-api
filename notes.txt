@@ -1,0 +1,54 @@
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+const cheerio = require('cheerio');
+
+const OUTPUT_DIR = path.join(__dirname, 'data');
+if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR);
+
+const API_KEY = 'e3b3d4755384933038a5884d91b165cf';
+const targetUrl = 'https://dexscreener.com/solana';
+const encodedUrl = encodeURIComponent(targetUrl);
+const endpoint = `https://api.scraperapi.com?api_key=${API_KEY}&url=${encodedUrl}&render=true`;
+
+const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+const HTML_FILE = path.join(OUTPUT_DIR, `dexscreener_raw_${timestamp}.html`);
+const PARSED_FILE = path.join(OUTPUT_DIR, `dexscreener_parsed_${timestamp}.json`);
+
+// STEP 1: Fetch and save HTML
+axios.get(endpoint)
+  .then(response => {
+    fs.writeFileSync(HTML_FILE, response.data);
+    console.log(`✅ Saved HTML snapshot to ${HTML_FILE}`);
+
+    // STEP 2: Load and parse the HTML
+    const $ = cheerio.load(response.data);
+    const rows = $('table tbody tr');
+
+    const tokens = [];
+
+    rows.each((i, row) => {
+      const cells = $(row).find('td');
+
+      tokens.push({
+        name: $(cells[0]).text().trim(),
+        price: $(cells[1]).text().trim(),
+        change1h: $(cells[2]).text().trim(),
+        change6h: $(cells[3]).text().trim(),
+        change24h: $(cells[4]).text().trim(),
+        volume: $(cells[5]).text().trim(),
+        liquidity: $(cells[6]).text().trim(),
+        age: $(cells[7]).text().trim(),
+        buys: $(cells[8]).text().trim(),
+        sells: $(cells[9]).text().trim(),
+        base: $(cells[10]).text().trim(),
+        pairUrl: $(row).find('a').attr('href') || ''
+      });
+    });
+
+    fs.writeFileSync(PARSED_FILE, JSON.stringify(tokens, null, 2));
+    console.log(`✅ Parsed and saved ${tokens.length} tokens to ${PARSED_FILE}`);
+  })
+  .catch(error => {
+    console.error('❌ Failed to fetch HTML:', error.message);
+  });

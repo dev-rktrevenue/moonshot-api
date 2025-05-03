@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-950 text-white">
+<head>
+  <meta charset="UTF-8" />
+  <title>Moonshot Analysis Files</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col items-center p-6 bg-gradient-to-b from-blue-900 to-gray-900">
+
+  <h1 class="text-3xl font-bold mb-6 text-blue-300">📊 Moonshot JSON Snapshots</h1>
+  <form method="GET" class="mb-4">
+    <label class="text-sm mr-2 text-blue-300 font-semibold">Filter by date:</label>
+    <select name="date" onchange="this.form.submit()" class="bg-gray-900 text-white p-2 rounded border border-blue-700">
+      <% availableDates.forEach(date => { %>
+        <option value="<%= date %>" <%= date === selectedDate ? 'selected' : '' %>><%= date %></option>
+      <% }) %>
+    </select>
+  </form>
+  <div class="w-full max-w-3xl bg-gray-800 rounded-xl shadow-lg p-4">
+    <table class="w-full table-auto text-left text-sm">
+      <thead class="text-blue-400 border-b border-gray-600">
+        <tr>
+          <th class="pb-2">File</th>
+          <th class="pb-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% files.forEach(file => { %>
+          <tr class="border-b border-gray-700 hover:bg-gray-700 transition">
+            <td class="py-2 font-mono"><%= file %></td>
+            <td class="py-2">
+              <a href="/api/tokens/json/<%= file %>" class="text-green-400 hover:underline mr-4">Download JSON</a>
+              <a href="/convert-csv/<%= file %>" class="text-yellow-400 hover:underline">Download CSV</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
