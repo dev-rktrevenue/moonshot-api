@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const JSON_DIR = path.join(__dirname, 'data', 'json');
 const LATEST_JSON_PATH = path.join(__dirname, 'data', 'latest.json');
