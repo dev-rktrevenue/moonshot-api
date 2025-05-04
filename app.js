@@ -17,24 +17,50 @@ const JSON_DIR = path.join(__dirname, 'data', 'json');
 const LATEST_JSON_PATH = path.join(__dirname, 'data', 'latest.json');
 
 app.get('/', (req, res) => {
-  const files = fs.readdirSync(JSON_DIR).filter(f => f.endsWith('.json')).sort().reverse();
+  const files = fs.readdirSync(JSON_DIR)
+    .filter(f => f.startsWith('dexscreener_') && f.endsWith('.json'));
 
-  const groupedByDate = {};
+  const groupedByDay = {};
 
   files.forEach(file => {
-    const date = file.split('_')[1].split('-').slice(0, 3).join('-'); // Extract YYYY-MM-DD
-    if (!groupedByDate[date]) groupedByDate[date] = [];
-    groupedByDate[date].push(file);
+    const match = file.match(/^dexscreener_(\d{4}-\d{2}-\d{2})T/);
+    if (!match) return;
+
+    const day = match[1]; // Extract just the YYYY-MM-DD
+    if (!groupedByDay[day]) groupedByDay[day] = [];
+    groupedByDay[day].push(file);
   });
 
-  const selectedDate = req.query.date || Object.keys(groupedByDate)[0]; // Default to most recent day
-  const filesToShow = groupedByDate[selectedDate] || [];
+  const availableDates = Object.keys(groupedByDay).sort().reverse();
+  const selectedDate = req.query.date || availableDates[0]; // default to latest
 
   res.render('index', {
-    files: filesToShow,
-    availableDates: Object.keys(groupedByDate),
+    files: groupedByDay[selectedDate] || [],
+    availableDates,
     selectedDate
   });
+});
+
+app.get('/api/tokens/json/:filename', (req, res) => {
+  const filePath = path.join(JSON_DIR, req.params.filename);
+
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).send('File not found');
+  }
+
+  const json = fs.readFileSync(filePath, 'utf8');
+  res.header('Content-Type', 'application/json');
+  res.send(json);
+});
+
+app.get('/download-json/:filename', (req, res) => {
+  const filePath = path.join(JSON_DIR, req.params.filename);
+
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).send('File not found');
+  }
+
+  res.download(filePath, req.params.filename);
 });
 
 app.get('/convert-csv/:filename', (req, res) => {
