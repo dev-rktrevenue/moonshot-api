@@ -116,8 +116,8 @@ app.get('/api/fetch', async (req, res) => {
   }
 });
 
-// 🕒 Every 30 minutes
-cron.schedule('*/30 * * * *', async () => {
+// 🕒 Every 10 minutes
+cron.schedule('*/10 * * * *', async () => {
   console.log('[CRON] Running 30-minute scraper...');
   await fetchAndParse();
 });
