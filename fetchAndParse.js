@@ -43,7 +43,7 @@ async function fetchAndParse() {
   const htmlPath = path.join(HTML_DIR, `dexscreener_${timestamp}.html`);
   const jsonPath = path.join(JSON_DIR, `dexscreener_${timestamp}.json`);
 
-/*  const { data: html } = await axios.get(endpoint);
+  const { data: html } = await axios.get(endpoint);
   fs.writeFileSync(htmlPath, html);
 
   const $ = cheerio.load(html);
@@ -79,9 +79,9 @@ async function fetchAndParse() {
       change24h: parseFloat(el.find('.ds-dex-table-row-col-price-change-h24').text().trim().replace('%', '')),
       pairUrl: 'https://dexscreener.com' + el.attr('href')
     });
-  });*/
+  });
 
-    const tokens = [
+/*    const tokens = [
     {
       name: 'XBT',
       fullName: 'Mock Token',
@@ -100,7 +100,7 @@ async function fetchAndParse() {
       makers: '600',
       pairUrl: 'https://dexscreener.com/solana/99D5oi479AxQpQcfVKkTK6E7r1Y8KJSKhaA9dUBws1vd'
     }
-  ];
+  ];*/
 
   fs.writeFileSync(jsonPath, JSON.stringify(tokens, null, 2));
   fs.writeFileSync(LATEST_JSON, JSON.stringify(tokens, null, 2));
