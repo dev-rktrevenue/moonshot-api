@@ -1,0 +1,49 @@
+[2025-05-16T10:51:00.076Z] [INFO] 🟡 [12:51:00] Starting Moonshot analysis...
+[2025-05-16T10:51:01.023Z] [ERROR] ❌ fetchAndParse failed: Request failed with status code 403
+[2025-05-16T10:54:00.748Z] [INFO] 🟡 [12:54:00] Starting Moonshot analysis...
+[2025-05-16T10:54:01.640Z] [ERROR] ❌ fetchAndParse failed: Request failed with status code 403
+[2025-05-16T11:21:00.437Z] [INFO] 🟡 [13:21:00] Starting Moonshot analysis...
+[2025-05-16T11:21:00.473Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:21:00.478Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:21:00.480Z] [ERROR] ❌ Telegram alert failed for MOCK: fetchTokenInfoFromDexscreener is not a function
+[2025-05-16T11:21:00.485Z] [INFO] ✅ Analysis completed at 13:21:00
+[2025-05-16T11:24:00.346Z] [INFO] 🟡 [13:24:00] Starting Moonshot analysis...
+[2025-05-16T11:24:00.355Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:24:00.365Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:28:00.570Z] [INFO] 🟡 [13:28:00] Starting Moonshot analysis...
+[2025-05-16T11:28:00.575Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:28:00.577Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:28:02.316Z] [INFO] 📡 Sending alert for MOCK — $0.0002
+[2025-05-16T11:28:02.318Z] [ERROR] ❌ Telegram alert failed for MOCK: mintAddress is not defined
+[2025-05-16T11:28:02.320Z] [INFO] ✅ Analysis completed at 13:28:02
+[2025-05-16T11:30:53.987Z] [INFO] 🟡 [13:30:53] Starting Moonshot analysis...
+[2025-05-16T11:30:54.047Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:30:54.050Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:32:01.434Z] [INFO] 🟡 [13:32:00] Starting Moonshot analysis...
+[2025-05-16T11:32:01.499Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:32:01.505Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:32:03.019Z] [INFO] 📡 Sending alert for XBT — $0.0002
+[2025-05-16T11:32:03.051Z] [ERROR] ❌ Telegram alert failed for XBT: mintAddress is not defined
+[2025-05-16T11:32:03.053Z] [INFO] ✅ Analysis completed at 13:32:03
+[2025-05-16T11:33:00.639Z] [INFO] 🟡 [13:33:00] Starting Moonshot analysis...
+[2025-05-16T11:33:00.713Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:33:00.717Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:33:01.743Z] [INFO] 📡 Sending alert for XBT — $0.0002
+[2025-05-16T11:33:01.748Z] [ERROR] ❌ Telegram alert failed for XBT: mintAddress is not defined
+[2025-05-16T11:33:01.749Z] [INFO] ✅ Analysis completed at 13:33:01
+[2025-05-16T11:34:00.388Z] [INFO] 🟡 [13:34:00] Starting Moonshot analysis...
+[2025-05-16T11:34:00.392Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:34:00.393Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:34:01.348Z] [INFO] 📡 Sending alert for XBT — $0.0002
+[2025-05-16T11:34:01.350Z] [ERROR] ❌ Telegram alert failed for XBT: mintAddress is not defined
+[2025-05-16T11:34:01.351Z] [INFO] ✅ Analysis completed at 13:34:01
+[2025-05-16T11:37:00.282Z] [INFO] 🟡 [13:37:00] Starting Moonshot analysis...
+[2025-05-16T11:37:00.293Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:37:00.298Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:37:01.370Z] [INFO] 📡 Sending alert for XBT — $0.0002
+[2025-05-16T11:37:02.099Z] [INFO] ✅ Analysis completed at 13:37:02
+[2025-05-16T11:38:00.031Z] [INFO] 🟡 [13:38:00] Starting Moonshot analysis...
+[2025-05-16T11:38:00.075Z] [INFO] 📥 Fetched 1 tokens from DexScreener
+[2025-05-16T11:38:00.084Z] [INFO] 🔍 Found 1 qualifying tokens
+[2025-05-16T11:38:01.190Z] [INFO] 📡 Sending alert for XBT — $0.0002
+[2025-05-16T11:38:01.827Z] [INFO] ✅ Analysis completed at 13:38:01

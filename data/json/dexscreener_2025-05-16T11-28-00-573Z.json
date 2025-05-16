@@ -1,8 +1,8 @@
 [
   {
-    "name": "XBT",
+    "name": "MOCK",
     "fullName": "Mock Token",
-    "pair": "XBT/SOL",
+    "pair": "MOCK/SOL",
     "price": 0.0002,
     "age": "5m",
     "ageMinutes": 5,
@@ -15,6 +15,6 @@
     "txns": "1234",
     "mcap": 5000000,
     "makers": "600",
-    "pairUrl": "https://dexscreener.com/solana/99D5oi479AxQpQcfVKkTK6E7r1Y8KJSKhaA9dUBws1vd"
+    "pairUrl": "https://dexscreener.com/solana/84nbd3gefeaixc9lp3pquuomxzbccwshgkejez49mxqt"
   }
 ]

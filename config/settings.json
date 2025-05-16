@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "minLiquidity": 5000,
+  "minVolume": 10000,
+  "minChange1h": 100,
+  "minTokenAgeMinutes": 2,
+  "maxTokenAgeMinutes": 30
+}

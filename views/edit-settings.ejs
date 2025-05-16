@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-950 text-white">
+<head>
+  <meta charset="UTF-8" />
+  <title>Moonshot Alert Settings</title>
+  <link rel="icon" type="image/png" href="/tongue-out.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col items-center p-6 bg-gradient-to-b from-blue-900 to-gray-900">
+
+  <div class="w-full max-w-lg mb-4 flex justify-start">
+    <a href="/" class="text-sm text-blue-300 hover:underline hover:text-blue-100 transition">
+      ← Back to Home
+    </a>
+  </div>
+
+  <h1 class="text-3xl font-bold mb-6 text-blue-300">⚙️ Moonshot Alert Settings</h1>
+
+  <form method="POST" class="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow space-y-6">
+    
+    <!-- Enable Alerts Toggle -->
+    <div class="flex items-center justify-between">
+      <label for="enabled" class="text-sm font-medium text-gray-200">Enable Telegram Alerts</label>
+      <input type="checkbox" id="enabled" name="enabled"
+        class="w-5 h-5 accent-green-500" <%= settings.enabled ? 'checked' : '' %> />
+    </div>
+
+    <!-- Entry Filters -->
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs text-gray-300 mb-1">Min Liquidity</label>
+        <input type="number" name="minLiquidity" value="<%= settings.minLiquidity %>"
+          class="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white text-sm"
+          placeholder="e.g. 5000" />
+      </div>
+      <div>
+        <label class="block text-xs text-gray-300 mb-1">Min Volume</label>
+        <input type="number" name="minVolume" value="<%= settings.minVolume %>"
+          class="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white text-sm"
+          placeholder="e.g. 10000" />
+      </div>
+      <div>
+        <label class="block text-xs text-gray-300 mb-1">% Change 1h</label>
+        <input type="number" name="minChange1h" value="<%= settings.minChange1h %>"
+          class="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white text-sm"
+          placeholder="e.g. 100" />
+      </div>
+      <div>
+        <label class="block text-xs text-gray-300 mb-1">Min Token Age (min)</label>
+        <input type="number" name="minTokenAgeMinutes" value="<%= settings.minTokenAgeMinutes %>"
+          class="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white text-sm"
+          placeholder="e.g. 2" />
+      </div>
+      <div>
+        <label class="block text-xs text-gray-300 mb-1">Max Token Age (min)</label>
+        <input type="number" name="maxTokenAgeMinutes" value="<%= settings.maxTokenAgeMinutes %>"
+          class="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white text-sm"
+          placeholder="e.g. 30" />
+      </div>
+    </div>
+
+    <!-- Save Button -->
+    <div class="flex justify-end">
+      <button type="submit"
+        class="bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-6 py-2 rounded">
+        Save Settings
+      </button>
+    </div>
+  </form>
+
+</body>
+</html>
