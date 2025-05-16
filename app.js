@@ -243,8 +243,8 @@ app.post('/settings/edit', express.urlencoded({ extended: true }), (req, res) =>
   res.redirect('/settings/edit');
 });
 
-// 🕒 Every 1 minutes
-cron.schedule('*/1 * * * *', async () => {
+// 🕒 Every 3 minutes
+cron.schedule('*/3 * * * *', async () => {
   console.log('[CRON] Running Moonshot analysis...');
   await runAnalysis();
 });
